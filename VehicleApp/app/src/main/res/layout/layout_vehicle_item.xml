@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="vehicle"
+                type="com.davidsmt.vehicleapp.ui.models.VehicleUI"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_screen_margin">
+
+        <TextView
+                android:id="@+id/vehicle_item_title"
+                style="@style/ListItemTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@{vehicle.vrn}"
+                app:layout_constraintEnd_toStartOf="@+id/vehicle_item_country"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Vehicle 1"/>
+
+        <TextView
+                android:id="@+id/vehicle_item_country"
+                style="@style/ListItemDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@{vehicle.country}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/vehicle_item_title"
+                tools:text="NL"/>
+
+        <TextView
+                android:id="@+id/vehicle_item_type"
+                style="@style/ListItemContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@{vehicle.type}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vehicle_item_title"
+                tools:text="Car"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
