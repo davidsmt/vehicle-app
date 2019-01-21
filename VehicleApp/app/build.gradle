@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "com.davidsmt.vehicleapp"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("keystores/debug/debug.keystore")
+            storePassword "android"
+            keyAlias "vehicleappdebugkey"
+            keyPassword "android"
+        }
+        release {
+            storeFile file("keystores/release/release.keystore")
+            storePassword "vehicleappstorepassword"
+            keyAlias "vehicleappreleasekey"
+            keyPassword "vehicleappreleasekeypassword"
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            jniDebuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            debuggable false
+            jniDebuggable false
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    flavorDimensions "tier"
+    productFlavors {
+        uat {
+            versionNameSuffix " - UAT"
+            applicationIdSuffix ".uat"
+            versionCode android.defaultConfig.versionCode + 1
+        }
+        production {}
+    }
+
+    testOptions {
+        unitTests.all {
+            jvmArgs '-noverify'
+            setIgnoreFailures(true)
+            maxParallelForks = Runtime.runtime.availableProcessors()
+        }
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':data')
+    implementation project(':usecases')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    // Android
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
+
+    // Testing
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.23.0'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
+
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
+
+    // Lottie
+    implementation "com.airbnb.android:lottie:3.0.0-beta1"
+}
