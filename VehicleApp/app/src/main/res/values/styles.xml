@@ -1,0 +1,62 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ToolbarTextAppearance" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textSize">@dimen/toolbar_text_size</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <!--Material Design Font size guidelines-->
+    <!--Page titles: 20sp-->
+    <!--Paragraph text: 14sp-->
+    <!--List titles: 14sp, Show importance using medium weight-->
+    <!--List item titles, Important text snippets: 16sp-->
+    <!--Secondary text, Captions: 14sp, Use lighter color to show lowered importance-->
+    <!--Buttons,Tabs: 14sp, Medium weight-->
+    <!--Text inputs:	16sp-->
+
+    <style name="PageTitle">
+        <item name="android:textSize">@dimen/title_screen_text_size</item>
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="ListItemTitle">
+        <item name="android:textSize">@dimen/list_item_title_text_size</item>
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+    </style>
+
+    <style name="ListItemContent">
+        <item name="android:textSize">@dimen/secondary_text_size</item>
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:fontFamily">@font/lato</item>
+    </style>
+
+    <style name="ListItemDetails">
+        <item name="android:textSize">@dimen/secondary_text_size</item>
+        <item name="android:textColor">@color/medium_grey</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="LoadingErrorText">
+        <item name="android:textSize">@dimen/captions_text_size</item>
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="LoadingErrorButton">
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+    </style>
+
+</resources>
