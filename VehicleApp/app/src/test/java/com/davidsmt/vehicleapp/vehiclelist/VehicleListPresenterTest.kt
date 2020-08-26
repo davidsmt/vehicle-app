@@ -3,8 +3,8 @@ package com.davidsmt.vehicleapp.vehiclelist
 import com.davidsmt.domain.ResourceException
 import com.davidsmt.domain.Vehicle
 import com.davidsmt.usecases.GetVehicles
-import com.davidsmt.vehicleapp.ui.vehiclelist.VehicleListPresenter
-import com.davidsmt.vehicleapp.ui.vehiclelist.VehicleListView
+import com.davidsmt.vehicleapp.ui.vehiclelistmvp.VehicleListPresenter
+import com.davidsmt.vehicleapp.ui.vehiclelistmvp.VehicleListView
 import com.davidsmt.vehicleapp.ui.models.VehicleUI
 import com.davidsmt.vehicleapp.ui.models.toVehicleUIModel
 import com.nhaarman.mockitokotlin2.any

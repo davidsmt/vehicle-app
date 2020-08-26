@@ -1,4 +1,4 @@
-package com.davidsmt.vehicleapp.ui.vehiclelist.adapters
+package com.davidsmt.vehicleapp.ui.vehiclelistmvp.adapters
 
 import androidx.recyclerview.widget.DiffUtil
 import com.davidsmt.vehicleapp.ui.models.VehicleUI

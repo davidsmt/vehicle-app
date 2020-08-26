@@ -1,4 +1,4 @@
-package com.davidsmt.vehicleapp.ui.vehiclelist
+package com.davidsmt.vehicleapp.ui.vehiclelistmvp
 
 import com.davidsmt.vehicleapp.ui.general.BaseView
 import com.davidsmt.vehicleapp.ui.models.VehicleUI

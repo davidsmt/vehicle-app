@@ -1,4 +1,4 @@
-package com.davidsmt.vehicleapp.ui.vehiclelist.adapters
+package com.davidsmt.vehicleapp.ui.vehiclelistmvp.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

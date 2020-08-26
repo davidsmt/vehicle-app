@@ -1,4 +1,4 @@
-package com.davidsmt.vehicleapp.ui.vehiclelist
+package com.davidsmt.vehicleapp.ui.vehiclelistmvp
 
 import com.davidsmt.domain.ResourceException
 import com.davidsmt.domain.Vehicle

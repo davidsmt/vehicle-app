@@ -29,6 +29,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.vehiclelistmvp.VehicleListActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.vehicledetailsmvp.VehicleDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
