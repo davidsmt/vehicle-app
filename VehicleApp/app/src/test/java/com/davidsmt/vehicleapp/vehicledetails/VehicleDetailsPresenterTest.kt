@@ -1,7 +1,7 @@
 package com.davidsmt.vehicleapp.vehicledetails
 
-import com.davidsmt.vehicleapp.ui.vehicledetails.VehicleDetailsPresenter
-import com.davidsmt.vehicleapp.ui.vehicledetails.VehicleDetailsView
+import com.davidsmt.vehicleapp.ui.vehicledetailsmvp.VehicleDetailsPresenter
+import com.davidsmt.vehicleapp.ui.vehicledetailsmvp.VehicleDetailsView
 import com.davidsmt.vehicleapp.ui.models.VehicleUI
 import org.junit.Before
 import org.junit.Test

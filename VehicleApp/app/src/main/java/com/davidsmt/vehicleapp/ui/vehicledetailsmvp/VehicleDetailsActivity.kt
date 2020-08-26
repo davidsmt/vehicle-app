@@ -1,47 +1,40 @@
-package com.davidsmt.vehicleapp.ui.vehicledetails
+package com.davidsmt.vehicleapp.ui.vehicledetailsmvp
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.davidsmt.vehicleapp.R
 import com.davidsmt.vehicleapp.databinding.ActivityVehicleDetailsBinding
 import com.davidsmt.vehicleapp.ui.general.BaseActivity
 import com.davidsmt.vehicleapp.ui.models.VehicleUI
 
-class VehicleDetailsActivity : BaseActivity() {
+class VehicleDetailsActivity : BaseActivity(), VehicleDetailsView {
 
-    private lateinit var viewModel: VehicleDetailsViewModel
-    private var _binding: ActivityVehicleDetailsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var presenter: VehicleDetailsPresenter
+    private lateinit var binding: ActivityVehicleDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = DataBindingUtil.setContentView(this, R.layout.activity_vehicle_details)
-        binding.setLifecycleOwner(this)
-        viewModel = ViewModelProvider(this).get(VehicleDetailsViewModel::class.java)
-
-        setupObservers()
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_vehicle_details)
 
         var vehicle: VehicleUI? = null
         if (intent.hasExtra(VEHICLE_EXTRA)) {
             vehicle = intent.getParcelableExtra(VEHICLE_EXTRA)
         }
 
-        viewModel.start(vehicle)
-    }
+        presenter = VehicleDetailsPresenter(this, vehicle)
 
-    private fun setupObservers() {
-        viewModel.getVehicle().observe(this, Observer {
-            binding.vehicle = it
-        })
+        presenter.attachView(this)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        _binding = null
+        presenter.detachView()
+    }
+
+    override fun showDetails(vehicle: VehicleUI?) {
+        binding.vehicle = vehicle
     }
 
     companion object {
